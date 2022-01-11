@@ -1,0 +1,143 @@
+/* CSS reset */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* mixins */
+@mixin anchor-box-shadow {
+    box-shadow: 0 -8rem 5.5rem black inset;
+    filter: brightness(80%);
+}
+
+
+/* Custom */
+
+html {
+    font-size: 16px;
+}
+
+section {
+    min-height: 5rem;
+}
+/* Header */
+
+header {
+    position: relative;
+}
+
+nav {
+    position: fixed;
+    top: -1px;
+    height: 4rem;
+    width: 100%;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0 1px 100px -30px black;
+}
+
+/* Main */
+
+$padding-main: .5rem 3rem;
+
+.grid-section {
+    display: none;
+}
+
+main {
+    margin-top: 5rem;
+}
+
+.mobile-sec {
+    height: 85vw;
+    margin-left: .3rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    a {
+        @include anchor-box-shadow();
+        display: inline-block;
+        width: 85%;
+        height: 100%;
+        margin-right: .2rem;
+    }
+
+    a:nth-child(1) {
+        background: url("https://img-cdn.tnwcdn.com/image?fit=600%2C300&url=https%3A%2F%2Fs3.amazonaws.com%2Fevents.tnw%2Fhardfork-2018%2Fuploads%2Fvisuals%2Ftrump_2022-01-10-101926_jsnr.jpeg&signature=e3e255c21f39070d2da56f035737a911")
+        65% 50% no-repeat;
+        background-size: cover;
+    }
+
+    a:nth-child(2) {
+        background: url("https://img-cdn.tnwcdn.com/image?fit=600%2C300&url=https%3A%2F%2Fs3.amazonaws.com%2Fevents.tnw%2Fhardfork-2018%2Fuploads%2Fvisuals%2Ftony.jpeg&signature=186de2217c1ecd428e0f0e51556633b8")
+         60% 0 no-repeat;
+         background-size: cover;
+    }
+
+    a:nth-child(3) {
+        background: url("https://img-cdn.tnwcdn.com/image?fit=600%2C300&url=https%3A%2F%2Fs3.amazonaws.com%2Fevents.tnw%2Fhardfork-2018%2Fuploads%2Fvisuals%2Fmetaverse.jpeg&signature=5238ad0db5165144458a6052ac08d64f")
+         62% 0 no-repeat;
+         background-size: cover;
+    }
+
+    a:nth-child(4) {
+        background: url("https://img-cdn.tnwcdn.com/image?fit=600%2C300&url=https%3A%2F%2Fs3.amazonaws.com%2Fevents.tnw%2Fhardfork-2018%2Fuploads%2Fvisuals%2Fcryptoland.jpeg&signature=d178f15852f1ec0886b2fd0c4e693b9e") 
+         60% 0 no-repeat;
+         background-size: cover;
+    }
+}
+
+.tickets {
+    height: 14rem;
+    margin: .3rem .3rem 0 .3rem;
+    background: url("https://img-cdn.tnwcdn.com/image?fit=285%2C150&url=https%3A%2F%2Fs3.amazonaws.com%2Fevents.tnw%2Fhardfork-2018%2Fuploads%2Fcompanies%2Fhome-header_advert-tnw2021-03.jpg&signature=5666d931fff7b6ec7496f08886c9fde0")
+     50% 0 no-repeat;
+    background-size: 200% 180%;
+    filter: blur(1px)
+    
+}
