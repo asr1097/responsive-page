@@ -49,21 +49,38 @@ table {
 	border-spacing: 0;
 }
 
+/* fonts */
+@font-face {
+    font-family: "Trump Soft Pro";
+    src: url("./fonts/TrumpSoftPro-Bold.ttf"); 
+}
+
+@font-face {
+    font-family: 'TNW Avalon';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://cdn4.tnwcdn.com/assets/fonts/tnw-avalon/tnw-avalon-bold.woff') format('woff'),
+         url('https://cdn4.tnwcdn.com/assets/fonts/tnw-avalon/tnw-avalon-bold.woff2') format('woff2');
+}
+
 /* mixins */
 @mixin anchor-box-shadow {
     box-shadow: 0 -8rem 5.5rem black inset;
-    filter: brightness(80%);
+    filter: brightness(90%);
 }
 
 
 /* Custom */
 
 html {
+    font-family: Graphik, sans-serif;
     font-size: 16px;
+    text-align: center;
 }
 
-section {
-    min-height: 5rem;
+a, a:hover, a:link, a:visited {
+    text-decoration: none;
+    color: inherit;
 }
 /* Header */
 
@@ -78,19 +95,57 @@ nav {
     width: 100%;
     z-index: 1;
     background-color: white;
-    box-shadow: 0 1px 100px -30px black;
+    box-shadow: 0 1px 55px -15px rgba(0, 0, 0, .3);
+}
+
+.nav-wrapper {
+    display: flex;
+    height: inherit;
+    width: fit-content;
+    align-items: center;
+}
+
+.nav-btn {
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    border: 0;
+    background-color: inherit;
+}
+
+.btn-image-holder {
+    width: inherit;
+    height: inherit;
+    background: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPjxwYXRoIGQ9J00zIDNoNHY0SDN6bTE0IDBoNHY0aC00em0tNyAwaDR2NGgtNHptLTcgN2g0djRIM3ptMTQgMGg0djRoLTR6bS03IDBoNHY0aC00em0tNyA3aDR2NEgzem0xNCAwaDR2NGgtNHptLTcgMGg0djRoLTR6JyBmaWxsPScjQTdBQUIyJy8+PC9zdmc+")
+    12px 12px no-repeat;
+}
+
+nav img {
+    width: 4rem;
 }
 
 /* Main */
 
 $padding-main: .5rem 3rem;
+$heading-color: #a7aab2;
+$background-gray: rgb(247, 248, 248);
 
 .grid-section {
     display: none;
 }
 
 main {
-    margin-top: 5rem;
+    margin-top: 5.5rem;
+    h2 {
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        color: $heading-color;
+    }
+}
+
+.logo {
+    width: 11rem;
+    margin-bottom: 1rem;
 }
 
 .mobile-sec {
@@ -109,7 +164,7 @@ main {
 
     a:nth-child(1) {
         background: url("https://img-cdn.tnwcdn.com/image?fit=600%2C300&url=https%3A%2F%2Fs3.amazonaws.com%2Fevents.tnw%2Fhardfork-2018%2Fuploads%2Fvisuals%2Ftrump_2022-01-10-101926_jsnr.jpeg&signature=e3e255c21f39070d2da56f035737a911")
-        65% 50% no-repeat;
+        50% 50% no-repeat;
         background-size: cover;
     }
 
@@ -139,5 +194,321 @@ main {
      50% 0 no-repeat;
     background-size: 200% 180%;
     filter: blur(1px)
+}
+
+/* Popular articles */
+
+.pop-articles {
+    margin-top: 4rem;
+    background-color: rgb(247, 248, 248);
+    padding: 3.5rem 2rem 0 2rem;
+    h2 {
+        font-size: 2rem;
+        font-weight: 900;
+        margin-bottom: 3.5rem;
+        font-family: "Trump Soft Pro", sans-serif;
+        color: $heading-color;
+    }
+}
+
+ul {
+    counter-reset: a;
+    min-height: fit-content;
+    padding-bottom: 2.5rem;
+}
+
+.pop-articles li {
+    margin-bottom: 1rem;
+    min-height: 4rem;
+    width: 100%;
+    a {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        font-family: "Trumo Soft Pro", sans-serif;
+        font-weight: 600;
+        text-align: left;
+    }
+}
+
+.pop-articles a::before {
+    counter-increment: a;
+    content: counter(a);
+    margin-right: 1rem;
+    color: rgb(204, 0, 153);
+    font-family: "Trump Soft Pro", sans-serif;
+    font-size: 2.5rem;
+}
+
+.pop-articles span {
+    display: block;
+    flex: 1;
+    text-align: left;
+    line-height: 1.5rem;
+}
+
+.pop-articles span:hover {
+    text-decoration: underline;
+    text-decoration-color: rgb(205, 0, 153);
+}
+
+/* Latest stories */
+
+.latest-stories {
+    padding: 0 2rem 0 2rem;
+}
+
+.latest-stories h2 {
+    margin-top: 4rem;
+    font-size: 1.9rem;
+    font-family: "TNW Avalon", sans-serif;
+    color: black;
+}
+
+.latest-stories a {
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.story {
+    display: flex;
+}
+
+.span-wrap {
+    display: flex;
+    flex-direction: column;
     
+    flex: 1;
+    margin-left: 1.2rem;
+    background-image: none !important;
+}
+
+.span-wrap > span {
+    text-align: left;
+}
+
+.story-class {
+    font-size: .8rem;
+    color: rgb(0, 204, 204);
+    margin-bottom: .5rem;
+}
+
+.story-text {
+    font-size: 1.05rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+}
+
+.story-text:hover {
+    text-decoration: underline;
+    text-decoration-color: rgba(204, 0, 153, .5);
+}
+
+.story-img {
+    flex-basis: 22vw;
+    width: 22vw;
+    height: 22vw;
+}
+
+.latest-stories a:nth-child(2) div {
+    background: url("https://img-cdn.tnwcdn.com/image?fit=285%2C150&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2022%2F01%2FUntitled-design-4.jpg&signature=0933dd0ad405e17be8779daaa43e51dc")
+     50% 0 no-repeat;
+     background-size: cover;
+    
+}
+
+.latest-stories a:nth-child(3) div {
+    background: url("https://img-cdn.tnwcdn.com/image?fit=285%2C150&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2022%2F01%2Fheader-image-Apple-cloth-2.jpg&signature=59c590f3f84038a3753261663e2abfe0")
+     50% 0 no-repeat;
+     background-size: cover;
+    
+}
+
+.latest-stories a:nth-child(4) div {
+    background: url("https://img-cdn.tnwcdn.com/image?fit=285%2C150&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2022%2F01%2FUntitled-design-45-5.jpg&signature=2eda991c814869391cb9247577e2bd16")
+     50% 0 no-repeat;
+     background-size: cover;
+}
+
+.latest-stories a:nth-child(5) div {
+    background: url("https://img-cdn.tnwcdn.com/image?fit=285%2C150&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2022%2F01%2FSmall-phone-q.jpg&signature=cf663f74d7693bc82eec9c72a80686ae")
+    50% 0 no-repeat;
+    background-size: cover;
+}
+.latest-stories a:nth-child(6) div {
+    background: url("https://img-cdn.tnwcdn.com/image?fit=285%2C150&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2022%2F01%2FUntitled-design-45-4.jpg&signature=7267f73990fa6e80295b66d691116808")
+    50% 0 no-repeat;
+    background-size: cover;
+}
+.latest-stories a:nth-child(7) div {
+    background: url("https://img-cdn.tnwcdn.com/image?fit=285%2C150&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2022%2F01%2FThe-Markup-Vista-Equity-Partners-Children-data-hed.jpg&signature=a30fc5f62d7f57b9ac85ec016baf2776")
+    50% 0 no-repeat;
+    background-size: cover;
+}
+.latest-stories a:nth-child(8) div {
+    background: url("https://img-cdn.tnwcdn.com/image?fit=285%2C150&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2022%2F01%2FSpotify-Hifi.jpg&signature=fc522e500eda1a96704cdd897c72766e")
+    50% 0 no-repeat;
+    background-size: cover;
+}
+.latest-stories a:nth-child(9) div {
+    background: url("https://img-cdn.tnwcdn.com/image?fit=285%2C150&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2021%2F07%2Ftimecrystals-1.jpg&signature=95d91b02a1449889a4135191c950da43")
+    50% 0 no-repeat;
+    background-size: cover;
+}
+
+.all-news-btn {
+    width: 90vw;
+    height: 3rem;
+    margin-top: 1.5rem;
+    margin-bottom: 3.5rem;
+    border: 0;
+    outline: 0;
+    border-radius: 30px;
+    background-color: rgb(204, 0, 153);
+    color: white;
+    font-size: .9rem;
+}
+
+/* Channels */
+
+.channels {
+    
+    padding: 4.5rem 0 5rem 1rem;
+    background-color: $background-gray;
+    h2 {
+        font-family: "TNW Avalon", sans-serif;
+        font-size: 1.8rem;
+        color: black;
+    }
+}
+
+.channel-scroll-div {
+    display: flex;
+    overflow-x: scroll;
+}
+
+.channel {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 14rem;
+    height: 16rem;
+    flex: 1 0 auto;
+    padding: 2rem;
+    margin-right: 1rem;
+    box-sizing: border-box;
+}
+
+.channel img {
+    width: 80%;
+}
+
+.channel-text {
+    font-size: 1.05rem;
+    line-height: 1.5rem;
+    color: white;
+}
+
+.channel-scroll-div article:nth-child(1) {
+    background: url("https://img-cdn.tnwcdn.com/image?fit=260%2C235&url=https%3A%2F%2Fnext.tnwcdn.com%2Fassets%2Fnext%2Fimg%2Fbackdrop-s-plugged.jpg&signature=4423a77a45ff6281a089424a8dd0bc24")
+    0 0 no-repeat;
+    background-size: cover;
+}
+
+.channel-scroll-div article:nth-child(2) {
+    background: url("https://img-cdn.tnwcdn.com/image?fit=260%2C235&url=https%3A%2F%2Fnext.tnwcdn.com%2Fassets%2Fnext%2Fimg%2Fbackdrop-s-neural.jpg&signature=7b20700b0f58af3860449664ae1a5e68")
+    0 0 no-repeat;
+    background-size: cover;
+}
+
+.channel-scroll-div article:nth-child(3) {
+    background: url("https://img-cdn.tnwcdn.com/image?fit=260%2C235&url=https%3A%2F%2Fnext.tnwcdn.com%2Fassets%2Fnext%2Fimg%2Fbackdrop-s-shift.jpg&signature=1d3ef28f5220f870b7e289810caa80a3")
+    0 0 no-repeat;
+    background-size: cover;
+}
+
+.channel-scroll-div article:nth-child(4) {
+    background: url("https://img-cdn.tnwcdn.com/image?fit=260%2C235&url=https%3A%2F%2Fnext.tnwcdn.com%2Fassets%2Fnext%2Fimg%2Fbackdrop-s-growth-quarters.jpg&signature=72ccfd9e92f942be8ace3526d0dc3aab")
+    0 0 no-repeat;
+    background-size: cover;
+}
+.channel-scroll-div article:nth-child(5) {
+    background: url("https://img-cdn.tnwcdn.com/image?fit=260%2C235&url=https%3A%2F%2Fnext.tnwcdn.com%2Fassets%2Fnext%2Fimg%2Fbackdrop-s-hardfork.jpg&signature=77d9941cfc302cb2e25c39ab3043fa7b")
+    0 0 no-repeat;
+    background-size: cover;
+}
+.channel-scroll-div article:nth-child(6) {
+    background: url("https://img-cdn.tnwcdn.com/image?fit=260%2C235&url=https%3A%2F%2Fnext.tnwcdn.com%2Fassets%2Fnext%2Fimg%2Fbackdrop-s-house-of-talent.jpg&signature=00b64ed0c1f08232e038c697e3f8f755")
+    0 0 no-repeat;
+    background-size: cover;
+}
+
+/* Newsletter */
+
+.newsletter {
+    width: 100%;
+    height: 22rem;
+    background-color: black;
+    background-image: url("https://next.tnwcdn.com/assets/next/img/spacesbg.png");
+    background-position-x: 50%;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+
+    h2 {
+        padding-top: 3.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.6rem;
+        font-family: "TNW Avalon", sans-serif;
+        color: white;
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.35rem;
+        color: white;
+    }
+
+    a {
+        color: rgb(0, 204, 204)
+    }
+}
+
+.news-wrap {
+    width: 80%;
+    height: 50%;
+    margin: auto;
+}
+
+.newsletter form {
+    display: flex;
+    width: 85%;
+    margin: auto;
+    margin-top: 2rem;
+   
+}
+
+input[type="text"] {
+    flex: 2.5;
+    height: 3rem;
+    padding-left: 2rem;
+    outline: 0;
+    border: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 1.1rem;
+}
+
+form button {
+    flex: 1;
+    border: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color:rgb(204, 0, 153);
+    color: white;
 }
